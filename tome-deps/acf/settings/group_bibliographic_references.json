@@ -1,0 +1,124 @@
+[
+  {
+    "key": "group_557e3cd16a4c6",
+    "title": "Bibliography",
+    "fields": [
+      {
+        "key": "field_557e3cd1718e0",
+        "label": "New Bibliographic Entry",
+        "name": "citation_text",
+        "type": "wysiwyg",
+        "instructions": "Use the provided citation guide to help format it correctly.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "tabs": "visual",
+        "toolbar": "very_simple",
+        "media_upload": 0
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "tome_bibliography"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": ""
+  },
+  {
+    "key": "group_557e101bc22ef",
+    "title": "References",
+    "fields": [
+      {
+        "key": "field_557e102508657",
+        "label": "Select an existing bibliographic entry. This will automatically be added to your chapter’s works cited.",
+        "name": "parent_reference",
+        "type": "post_object",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "post_type": [
+          "tome_bibliography"
+        ],
+        "taxonomy": [],
+        "allow_null": 1,
+        "multiple": 0,
+        "return_format": "id",
+        "ui": 1
+      },
+      {
+        "key": "field_557e109208658",
+        "label": "How do you want this reference to appear in your text?",
+        "name": "reference_text",
+        "type": "wysiwyg",
+        "instructions": "The works cited entry will remain unchanged.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "tabs": "visual",
+        "toolbar": "very_simple",
+        "media_upload": 0
+      },
+      {
+        "key": "field_559409221bdf5",
+        "label": "Chapter",
+        "name": "chapter_reference",
+        "type": "post_object",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "post_type": [
+          "chapter"
+        ],
+        "taxonomy": [],
+        "allow_null": 0,
+        "multiple": 0,
+        "return_format": "id",
+        "ui": 1
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "tome_reference"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": ""
+  }
+]

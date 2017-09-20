@@ -1,0 +1,889 @@
+/*
+Theme Name: Tome
+Theme URI: http://typefold.com/
+Description: Typefold Tome theme for the tome.press site.
+Version: 1.8 (WP 4.1)
+Author: Agustin M. Sevilla III
+Author URI: http://typefold.com/
+*/
+
+@import url("css/app.css");
+@import url("foundation-icons/foundation-icons.css");
+
+/* Comments */
+h3#comments {}
+ol.commentlist {list-style: none;}
+ol.commentlist li ul {
+    list-style: none;
+    margin-top:20px;
+    margin-bottom: 1.25em;
+    padding: 1.25em;
+    background: rgba(255,255,255,0.75);
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+
+div.comment-author.vcard {border:none;padding:0;margin-bottom:0;}
+div.comment-author.vcard img {float:left;margin-right:0.5em;}
+
+form#commentform ul#comment-form-elements {list-style: none;}
+form#commentform input#submit {margin-top:1.2em;}
+
+/* Drop Cap made by our shortcode */
+.dropcap {
+   line-height: .9;
+   margin-top: 0.01em;
+   display: inline-block;
+   color: #232323;
+   padding: 0em 0em;
+   margin-right: 0.22em;
+   margin-bottom: 0em;
+   vertical-align:   top;
+   float: left;
+   font-size: 5.2em;
+}
+
+/* 
+
+Chapters stuff
+
+*/
+.content-area {
+    padding-top:1em;
+}
+
+.content-area p, .works-cited span {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    overflow-wrap: break-word;
+}
+
+.entry-title {
+    text-align: center;
+}
+
+.author {
+    text-align: center;
+}
+
+.author small {
+    font-family: 'Lora', serif;
+    font-weight: 100;
+    font-style: italic;
+    text-align: center;
+}
+
+/*
+Images
+*/
+/* Image related classes */
+
+
+
+/* 
+    Tome Places: Google Maps Styles
+
+*/
+.map-canvas {
+    width:100%;
+    height:100%;
+}
+.map-canvas.inline-map{
+    height: 500px;
+}
+
+.map-canvas img { max-width: none; }
+
+/* Single Place view */
+.map-canvas div#all-places-desc, div.map-coords {
+    margin-bottom: 1em;
+}
+.map-canvas div.map-coords {
+    margin-top:1em;
+    background:#666;
+    color:#fff;
+    padding:0.24em;
+}
+
+.container {
+    background: white;
+    position: relative;
+}
+
+
+/* Developed for the Places Archive view */
+.map-canvas #info-window-content {
+    height:auto;
+    width:220px;
+    padding-bottom:20px;
+}
+
+.highcontrast .map-canvas #info-window-content h1,
+.map-canvas #info-window-content h1 {
+    font-size:1em;
+    margin:16px 0 4px;
+    color:#232323;
+}
+.highcontrast .map-canvas #info-window-content p,
+.map-canvas #info-window-content p {
+    font-size:12px;
+    margin-bottom:3px;
+    color:#232323;
+}
+.highcontrast .map-canvas #info-window-content a.button,
+.map-canvas #info-window-content a.button {
+    margin-top:10px;
+    display:inline-block;
+    background:crimson;
+    color:white;
+    padding:10px;
+}
+
+/*
+
+Prev/next Chapter 
+
+*/
+.pagination-wrap {
+    font-size:1em;
+    border-top:1px solid #e6e6e6;
+    padding:1em 0;
+}
+
+.pagination-wrap .next-chap {
+    text-align:right;
+}
+
+.pagination-wrap .next-chap p,
+.pagination-wrap .prev-chap p {
+    margin:0;
+}
+
+
+/* Admin bar is so annoying... */
+body.logged-in.admin-bar > .fixed {
+    top:28px;
+}
+
+@media screen and (max-width:782px) {
+    body.logged-in.admin-bar > .fixed {
+        top:46px;
+    }   
+}
+body {
+    margin-top: 45px;
+}
+/* -------------------------------
+    STYLES FOR THE TOME GALLERY
+------------------------------- */
+
+.tome-gallery-modal .lSSlideOuter .lSPager.lSpg {
+    /* move the pager all the way to the left. */
+    text-align: left;
+}
+.tome-gallery-modal .slick-slide {
+    overflow: hidden;
+}
+
+/***** New Gallery Cover 10/20/2015 ****/
+
+.GalleryModule {
+    cursor: pointer;
+    position: relative;
+    color: #1d1e1e;
+}
+.GalleryModule-figure {
+    margin: 0;
+}
+.GalleryModule-figure img {
+    display: block;
+    max-width: 100%;
+}
+.GalleryModule-figcaption {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.5);
+    -webkit-transition: background-color 0.5s ease-in, text-shadow 0.5s ease-in;
+    transition: background-color 0.5s ease-in, text-shadow 0.5s ease-in;
+    position: absolute;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 1.5em;
+}
+.GalleryModule:hover .GalleryModule-figcaption {
+    background: rgba(255, 255, 255, 0);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+    -webkit-transition: background-color 0.3s ease-out, text-shadow 0.3s ease-out;
+    transition: background-color 0.3s ease-out, text-shadow 0.3s ease-out;
+}
+.GalleryModule-icon {
+    float: left;
+    margin-right: 1rem;
+}
+.GalleryModule-title {
+    font-weight: bold;
+}
+
+
+/* Gallery modal */
+@import url(https://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Arimo:400,400italic,700,700italic);
+
+.tome-gallery-modal {
+    display: none;
+}
+.tome-gallery-modal, .tome-gallery-modal * {
+    box-sizing: border-box;
+}
+
+.tome-gallery-modal:before {
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,.6);
+    z-index: -1;
+}
+.tome-gallery-modal *{
+    font-family: "Lora", serif !important;
+    font-size: 1rem;
+}
+.tome-gallery-modal h1, .tome-gallery-modal h2, .tome-gallery-modal h3, .tome-gallery-modal h4, .tome-gallery-modal h5 {
+    font-family: "Arimo", sans-serif !important;
+
+}
+
+
+.wrapper {
+    border: 20px solid #212121;
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-height: 100%;
+    min-height: 100vh;
+    z-index: 500;
+}
+@media screen and (min-width: 160px) {
+    .wrapper {
+        height: 100%;
+        height: 100vh;
+        overflow: hidden;
+        position: fixed;
+    }
+}
+
+.viewer,
+.sidebar {
+    background: #fff;
+    height: 50%;
+    height: 50vh;
+}
+.viewer .viewer-inner .portrait,
+.viewer .viewer-inner .portrait img {
+    width: auto;
+    margin: 0 auto;
+    /*max-height: 50%;*/
+}
+
+
+.viewer .viewer-inner  {
+    padding: 0;
+    max-height: 50vh;
+}
+@media screen and (min-width: 960px) {
+    .viewer,
+    .sidebar {
+        position: absolute;
+        height: 100%;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .viewer {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 320px;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .viewer .viewer-inner {
+        left: 0;
+        width: 100%;
+        /*height: 100%;*/
+        max-height: 100%;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+}
+@media screen and (min-width: 960px) {
+    .viewer .viewer-inner .portrait {
+        position: relative;
+        left: auto;
+        top: auto;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+        height: 100%;
+    }
+    .viewer .viewer-inner .portrait img {
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+        max-height: 100%;
+    }
+}
+.viewer img {
+    display: block;
+    height: auto;
+    width: 100%;
+    position: relative;
+}
+
+@media screen and (max-width: 960px) {
+    .tome-slider-slide {
+        height: 50%;
+        height: 50vh;
+        max-height: 50%;
+        max-height: 50vh;
+    }
+}
+
+.sidebar {
+    bottom: 0;
+    padding: 40px 20px 20px 30px;
+    right: 0;
+    top: 0;
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    overflow-y: scroll;
+    max-width: 100%;
+
+}
+@media screen and (min-width: 960px) {
+    .sidebar {
+        max-width: 320px;
+        overflow-y: hidden;
+        /*display: block;*/
+    }
+}
+.sidebar .title {
+    -webkit-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    font-size: 18px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+.sidebar .caption {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+    color: #333333;
+    font-style: italic;
+    font-size: 1.0rem !important;
+    overflow-y: visible;
+    margin-bottom: 20px;
+}
+.sidebar .description {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+    position: relative;
+    overflow-y: visible;
+    font-size: 1.0rem !important;
+    font-style: normal;
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width: 960px) {
+
+
+    .sidebar .description {
+        overflow-y: auto;
+    }
+    .sidebar .caption {
+        overflow-y: auto;
+    }
+}
+
+.sidebar .tags {
+    -webkit-align-self: flex-end;
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+    -webkit-box-ordinal-group: 4;
+    -webkit-order: 3;
+    -ms-flex-order: 3;
+    order: 3;
+    -webkit-box-flex: 100;
+    -webkit-flex-grow: 100;
+    -ms-flex-positive: 100;
+    flex-grow: 100;
+    width: 100%;
+    font-size: 0.6125rem;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 20px;
+    text-transform: uppercase;
+}
+.sidebar .tags li {
+    display: inline-block;
+    margin-bottom: 3px;
+    margin-right: 3px;
+}
+
+.controls {
+    -webkit-align-self: flex-end;
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+    -webkit-box-ordinal-group: 0;
+    -webkit-order: -1;
+    -ms-flex-order: -1;
+    order: -1;
+    width: 100%;
+}
+@media screen and (min-width: 960px) {
+    .controls {
+        -webkit-box-ordinal-group: 5;
+        -webkit-order: 4;
+        -ms-flex-order: 4;
+        order: 4;
+        padding: 10px 0 0;
+    }
+}
+.controls button {
+    display: block;
+    float: right;
+    padding: 0.5em;
+    width: 60px;
+    font-weight: normal;
+}
+.controls button:focus { outline: none; }
+.controls button:first-child {
+    border-right: none;
+}
+
+button.viewer-close {
+    border: none;
+    color: white;
+    position: absolute;
+    outline: none;
+    top: 0px;
+    right: 0;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 0.5;
+    padding: 15px;
+    -webkit-transition: background-color 0.15s, -webkit-transform 0.15s;
+    transition: background-color 0.15s, transform 0.15s;
+    font-family: 'Lora', serif !important;
+    background: #39b27d;
+    box-shadow: none;
+}
+
+button.viewer-close:hover {
+    background-color: #2d8b62;
+}
+button.viewer-close:active {
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.sidebar .tags li a, .controls button {
+    border-width: 1px;
+    border-style: solid;
+    color: #808080;
+    padding: 10px 0;
+    text-decoration: none;
+    line-height: 1;
+    box-shadow: none;
+    text-indent: -9999px;
+    border: 0;
+    margin: 0;
+}
+
+.controls button.ctrl-previous {
+    border-right: 1px solid #656567;
+    background: url('img/arrow_left.png') no-repeat center center;
+    background-color: #808080;
+}
+
+.controls button.ctrl-next {
+    background: url('img/arrow_right.png') no-repeat center center;
+    background-color: #808080;
+}
+
+.sidebar .tags li a:hover, .controls button:hover {
+    background-color: #656567;
+}
+.sidebar .tags li a:visited, .controls button:visited {
+    color: #0d7373;
+}
+
+button[data-clone] {
+    background: #0d730d;
+}
+
+button[data-delete] {
+    background: #e61919;
+}
+
+button[data-clone],
+button[data-delete] {
+    font-family: "Arimo", sans-serif;
+    font-weight: 700;
+    border: none;
+    color: white;
+    font-size: 0.85rem;
+}
+
+
+
+
+/***** END of New Gallery Cover *****/
+
+
+
+/* stack styles to get a stack of images effect */
+
+div.gallery-cover {
+
+    border: 6px solid #fff;
+    width: 100%;
+    height: auto;
+    position: relative;
+    left: 0;
+    /*margin-left: auto;*/
+    /*margin-right:auto;*/
+    /*-webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);*/
+    /*-moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);*/
+    /*box-shadow: 2px 2px 5px rgba(0,0,0,0.3);*/
+
+
+    /*position : absolute;*/
+    text-shadow: 1px 1px 2px rgba(255,255,255,0);
+
+}
+
+div.gallery-cover.large {
+    width: 140%;
+    left: -20%;
+}
+
+div.gallery-cover.small {
+    float: right;
+    width: 50%;
+    left: 0%;
+}
+
+@media screen and (max-width: 640px) {
+    div.gallery-cover {
+        width: 100% !important;
+        display: block;
+        float: none !important;
+    }
+}
+
+div.gallery-cover img {
+    width: 100%;
+    height: auto;
+    opacity: .6;
+    transition : opacity 0.5s ease-in, text-shadow 0.5s ease-in;
+}
+
+div.gallery-cover:hover img {
+
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 1;
+    transition:color .5s, opacity .5s;
+}
+div.gallery-cover:hover h2 {
+    /*background : rgba(255,255,255,0);*/
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.9);
+    transition : background-color 0.3s ease-out, text-shadow 0.3s ease-out;
+}
+
+.tome-gallery-modal .viewer-inner p { margin: 0; }
+
+
+div[class*='stack'] {
+    float: right;
+    /*position: relative;*/
+    /*margin: 75px;*/
+}
+
+div[class*='stack']  .facecard {
+    z-index: 3;
+    position: absolute;
+    background-color:  #deebf4  ;
+}
+
+div[class*='stack'] .facecard, div[class*='stack']:before, div[class*='stack']:after {
+    border: 6px solid #fff;
+    height: 600px;
+    width: 600px;
+    -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+div[class*='stack']:before, div[class*='stack']:after {
+    /*background: #deebf4;*/
+    content: "";
+    position: absolute;
+    z-index: 1;
+
+    /*Dirty IE8 hack*/
+    height: 0px\9; width: 0px\9;
+    border: none\9;
+}
+
+div[class*='stack']:before {
+    background: #768590;
+}
+
+div[class*='stack']:after {
+    background: #eff4de;
+}
+
+/*BANNER*/
+
+div.gallery-cover h2 {
+    /*text-shadow: 0px 0px 150px black, 2px 2px 30px #999;*/
+    /*background-color: rgba(0, 0, 0, 0.5);*/
+    font-family: sans-serif;
+    font-weight: bold;
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/44303/galleryicon-01.svg);
+    background-position: 30px;
+    background-size: 32px;
+    background-repeat: no-repeat;
+    padding: 20px 80px;
+    z-index: 20;
+    transition:color .5s, background-color .25s;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    color: #1d1e1e;
+    font-size:1.5em;
+    transition : background-color 0.5s ease-in, text-shadow 0.5s ease-in;
+    /*position : absolute;*/
+    text-shadow: 1px 1px 2px rgba(255,255,255,0);
+}
+
+/*
+
+    Tome Place Infowindow Styles
+
+*/
+.tomeInfoWindow {
+  padding-left: 24px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #231F20;
+  max-width: 350px;
+}
+
+.tomeInfoWindow .tomeInfoWindow-hr,
+.chapter-header .title-divider {
+    border: none;
+    border-top: 2px solid #dfdfdf;
+    margin: 20px auto 0;
+    width: 76px;
+}
+
+.tomeInfoWindow .tomeInfoWindow-meta {
+    padding-top: 20px;
+}
+
+.tomeInfoWindow .tomeInfoWindow-body {
+    padding-top: 20px;
+}
+
+
+.tomeInfoWindow .tomeInfoWindow-title,
+.tomeInfoWindow .tomeInfoWindow-btn {
+  font-size: 100%;
+}
+
+.tomeInfoWindow p {
+    font-size: 14px;
+}
+
+.tomeInfoWindow .tomeInfoWindow-btn {
+  background: #ED1850;
+  color: white;
+  display: inline-block;
+  border: none;
+  padding: 0.25rem 0.75rem;
+}
+.tomeInfoWindow .tomeInfoWindow-title,
+.tomeInfoWindow .tomeInfoWindow-meta {
+  text-align: center;
+}
+.tomeInfoWindow .tomeInfoWindow-title {
+    font-size: 22px;
+    margin-top: 11px;
+}
+
+@media screen and (min-width: 640px) {
+  .tomeInfoWindow {
+    max-width: 600px;
+  }
+}
+
+
+/*
+ * Citation Text
+*/
+.citation-text {
+    font-family: "Consolas", "Menlo", "Courier", monospace !important;
+}
+
+@keyframes blink-highlight {
+    to { background-color: #ff7}
+    from { background-color: inherit }
+}
+
+.works-cited .citation-text:target {
+    animation-duration: .5s;
+    animation-timing-function: ease;
+    animation-name: blink-highlight;
+    animation-delay: .3s;
+    animation-iteration-count: 8;
+    animation-direction: alternate;
+
+}
+
+.bibliography-list .citation-text,
+.works-cited .citation-text {
+    font-size:1em;
+    margin-bottom: 1.2em;
+}
+
+
+/* Navigation buttons for prev/next chapter */
+@media screen and (max-width: 640px) {
+    .chapter-nav-buttons {
+        display: none;
+    }
+}
+.chapter-nav-buttons {
+    width: 100%;
+}
+.chapter-nav-buttons a {
+    font-family: "Lora", serif;
+    position: fixed;
+    top:50%;
+    top:50vh;
+    /*background-color: red;*/
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    animation-duration: 2s;
+    line-height: 28px;
+    max-width:150px;
+    font-size: 18px;
+    min-height:28px;
+    color: #31c6ce; /* color of original chapter links */
+    color: #25a37d; /* color of arrow image */
+    overflow-x: hidden;
+
+    filter: gray; /* IE6-9 */
+    filter: grayscale(1); /* Firefox 35+ */
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+}
+
+
+
+.chapter-nav-buttons a .title {
+    opacity: 0;
+    position: relative;
+    left: 0;
+    transition: opacity .3s;
+    transition-timing-function: ease;
+    font-size: 14px;
+    line-height: 22px;
+    display: block;
+}
+
+/* the floating prev/next chapter buttons should be gray by default */
+
+.chapter-nav-buttons a.sythetic-hover,
+.chapter-nav-buttons a:hover {
+
+    filter: none; /* IE6-9 */
+    filter: grayscale(0); /* Firefox 35+ */
+    -webkit-filter: grayscale(0); /* Google Chrome, Safari 6+ & Opera 15+ */
+}
+
+/* on hover of the floating prev/next chapter, make them color */
+.chapter-nav-buttons a.sythetic-hover .title,
+.chapter-nav-buttons a:hover .title {
+    opacity: 1;
+}
+
+.chapter-nav-buttons a.prev {
+    left: 0;
+    background: url(img/left-arrow.png) no-repeat left 20px center;
+    background-size: 14px 22px;
+    padding: 10px 15px 10px 45px;
+
+
+}
+.chapter-nav-buttons a.next {
+    right: 0;
+    background: url(img/right-arrow.png) no-repeat right 20px center;
+    background-size: 14px 22px;
+    padding: 10px 45px 10px 15px;
+}
+
+.chapter-nav-buttons a.prev:hover,
+.chapter-nav-buttons a.next:hover {
+    -webkit-transition: background-color 0.25s ease-in;
+    transition: background-color 0.25s ease-in;
+    background-color: white;
+}
+

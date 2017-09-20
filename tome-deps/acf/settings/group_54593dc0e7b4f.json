@@ -1,0 +1,67 @@
+{
+    "key": "group_54593dc0e7b4f",
+    "title": "Tome Map Fields",
+    "fields": [
+        {
+            "key": "field_54593ddcc6da5",
+            "label": "Places",
+            "name": "places",
+            "type": "repeater",
+            "instructions": "Choose the places you would like to add to your map.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": "",
+            "max": "",
+            "layout": "table",
+            "button_label": "Add Place",
+            "sub_fields": [
+                {
+                    "key": "field_54593e29c6da6",
+                    "label": "Place",
+                    "name": "place",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "tome_place"
+                    ],
+                    "taxonomy": [
+
+                    ],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "object",
+                    "ui": 1
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "tome_map"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "local": "json",
+    "modified": 1436912050
+}

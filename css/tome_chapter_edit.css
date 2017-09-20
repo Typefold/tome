@@ -1,0 +1,128 @@
+
+.dashbutton {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+.dashbutton span {
+    line-height: 26px;
+}
+
+.dashbutton.lightred {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #da5858), color-stop(100%, #d82222));
+    background-image: -webkit-linear-gradient(#da5858, #d82222);
+    background-image: -moz-linear-gradient(#da5858, #d82222);
+    background-image: -o-linear-gradient(#da5858, #d82222);
+    background-image: linear-gradient(#da5858, #d82222);
+    -pie-background: linear-gradient(#da5858, #d82222);
+    border: 1px solid #dd2222;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: inset 0 1px 0 0 #e28383;
+    -webkit-box-shadow: inset 0 1px 0 0 #e28383;
+    -o-box-shadow: inset 0 1px 0 0 #e28383;
+    box-shadow: inset 0 1px 0 0 #e28383;
+    color: #fff !important;
+    text-shadow: 0 1px 0 #c01616;
+    behavior: url("./wp-content/themes/element/PIE.php");
+    position: relative;
+}
+.dashbutton.lightred:hover {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ca2121), color-stop(100%, #d14747));
+    background-image: -webkit-linear-gradient(#ca2121, #d14747);
+    background-image: -moz-linear-gradient(#ca2121, #d14747);
+    background-image: -o-linear-gradient(#ca2121, #d14747);
+    background-image: linear-gradient(#ca2121, #d14747);
+    -pie-background: linear-gradient(#ca2121, #d14747);
+    -moz-box-shadow: inset 0 1px 0 0 #d97373;
+    -webkit-box-shadow: inset 0 1px 0 0 #d97373;
+    -o-box-shadow: inset 0 1px 0 0 #d97373;
+    box-shadow: inset 0 1px 0 0 #d97373;
+    cursor: pointer;
+}
+.dashbutton.lightred:active {
+    -moz-box-shadow: inset 0 0 8px 4px #bc2020, inset 0 0 8px 4px #bc2020, 0 1px 1px 0 #eeeeee;
+    -webkit-box-shadow: inset 0 0 8px 4px #bc2020, inset 0 0 8px 4px #bc2020, 0 1px 1px 0 #eeeeee;
+    -o-box-shadow: inset 0 0 8px 4px #bc2020, inset 0 0 8px 4px #bc2020, 0 1px 1px 0 #eeeeee;
+    box-shadow: inset 0 0 8px 4px #bc2020, inset 0 0 8px 4px #bc2020, 0 1px 1px 0 #eeeeee;
+    border: 1px solid #cb2020;
+}
+
+.dashbutton.red {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d81818), color-stop(100%, #ae0a0a));
+    background-image: -webkit-linear-gradient(#d81818, #ae0a0a);
+    background-image: -moz-linear-gradient(#d81818, #ae0a0a);
+    background-image: -o-linear-gradient(#d81818, #ae0a0a);
+    background-image: linear-gradient(#d81818, #ae0a0a);
+    -pie-background: linear-gradient(#d81818, #ae0a0a);
+    border: 1px solid #b20a0a;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: inset 0 1px 0 0 #e73c3c;
+    -webkit-box-shadow: inset 0 1px 0 0 #e73c3c;
+    -o-box-shadow: inset 0 1px 0 0 #e73c3c;
+    box-shadow: inset 0 1px 0 0 #e73c3c;
+    color: #fff !important;
+    text-shadow: 0 1px 0 #900404;
+    behavior: url("./wp-content/themes/element/PIE.php");
+    position: relative;
+}
+.dashbutton.red:hover {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #9e0a0a), color-stop(100%, #bc1a1a));
+    background-image: -webkit-linear-gradient(#9e0a0a, #bc1a1a);
+    background-image: -moz-linear-gradient(#9e0a0a, #bc1a1a);
+    background-image: -o-linear-gradient(#9e0a0a, #bc1a1a);
+    background-image: linear-gradient(#9e0a0a, #bc1a1a);
+    -pie-background: linear-gradient(#9e0a0a, #bc1a1a);
+    -moz-box-shadow: inset 0 1px 0 0 #de2b2b;
+    -webkit-box-shadow: inset 0 1px 0 0 #de2b2b;
+    -o-box-shadow: inset 0 1px 0 0 #de2b2b;
+    box-shadow: inset 0 1px 0 0 #de2b2b;
+    cursor: pointer;
+}
+.dashbutton.red:active {
+    -moz-box-shadow: inset 0 0 8px 4px #8f0a0a, inset 0 0 8px 4px #8f0a0a, 0 1px 1px 0 #eeeeee;
+    -webkit-box-shadow: inset 0 0 8px 4px #8f0a0a, inset 0 0 8px 4px #8f0a0a, 0 1px 1px 0 #eeeeee;
+    -o-box-shadow: inset 0 0 8px 4px #8f0a0a, inset 0 0 8px 4px #8f0a0a, 0 1px 1px 0 #eeeeee;
+    box-shadow: inset 0 0 8px 4px #8f0a0a, inset 0 0 8px 4px #8f0a0a, 0 1px 1px 0 #eeeeee;
+    border: 1px solid #9f0909;
+}
+
+
+
+
+
+.tome-chapter-head-option,
+.tome-chapter-head-author-name {
+    display:none;
+}
+.tome-chapter-head-option.active,
+.tome-chapter-head-author-name.active{
+    display:block;
+}
+fieldset.tome-chapter-head-option h1,
+fieldset.tome-chapter-head-author-name h1 {
+    font-size:1em;
+    text-transform: uppercase;
+}
+p.tome-chapter-head-option.active,
+p.tome-chapter-head-author-name.active {
+    display:block;
+}
+
+strong.warning {
+    display:inline-block;
+    background:orange;
+    color:white;
+    -webkit-border-radius:5px;
+    padding:0.2em;
+}
