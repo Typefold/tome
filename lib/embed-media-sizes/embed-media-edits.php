@@ -33,25 +33,29 @@ function print_media_templates() {
 		<label class="setting">
 			<span>Media Size</span>
 			<select class="media-size" name="size" data-setting="size">
-				<?php
+			<?php
 
-				$sizes = array(
-					'full-column'    => __( 'Full Column' ),
-					'half-column' => __( 'Half Column' ),
-					);
+			$sizes = array(
+				'full-column'    => __( 'Full Column' ),
+				'half-column' => __( 'Half Column' ),
+				);
 
-					foreach ( $sizes as $value => $name ) { ?>
-					<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $value, 'full-column' ); ?>>
-						<?php echo esc_html( $name ); ?>
-					</option>
-					<?php } ?>
-				</select>
-			</label>
-		</script>
-		<?php
-	}
+			foreach ( $sizes as $value => $name ) :
 
+			?>
+				<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $value, 'full-column' ); ?>>
+					<?php echo esc_html( $name ); ?>
+				</option>
+			<?php
 
+			endforeach;
+			
+			?>
+			</select>
+		</label>
+	</script>
+	<?php
+}
 
 
 function bigger_embed_size() {

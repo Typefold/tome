@@ -116,7 +116,6 @@ if( $content_background_color ) {
 	?>
 </div>
 
-<h1>front-page.php</h1>
 <?php get_footer(); ?>
 
 <?php function empty_cover() {
