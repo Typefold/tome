@@ -112,7 +112,7 @@ function print_embed_media_gallery_item( $post ) {
 		if ( $media_q->have_posts() ) : while ( $media_q->have_posts() ) : $media_q->the_post();
 
 
-			$image_tags = get_gallery_image_tags( $post );
+			$image_tags = tome_get_gallery_image_tags( $post );
 
 
 			if ( $post->post_type == 'tome_media' ):
@@ -124,7 +124,7 @@ function print_embed_media_gallery_item( $post ) {
 				$src = wp_get_attachment_image_src( $post->ID, 'large' );
 				$image_width = $src[1];
 				$image_height = $src[2];
-				$portrait_class = get_portrait_class( $image_width, $image_height ); // portraitimg or ""
+				$portrait_class = tome_get_portrait_class( $image_width, $image_height ); // portraitimg or ""
 
 				?>
 

@@ -42,28 +42,7 @@
 	<?php
 	
 	//Add our Top Bar Nav: http://foundation.zurb.com/docs/components/top-bar.html 
-	amsf_tome_topnav();
+	tome_topnav();
 	
 	?>
 	</div>
-
-<?php /*<!--
-	<div class="header-image-wrap">
-		<div class="row">
-			<div class="large-12 columns">
-				<div class="siteinfo">
-					<h1><a class="brand" id="logo" href="<?php echo get_bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
-					<h4 class="subheader"><small><?php echo get_bloginfo ( 'description' ); ?></small></h4>
-				</div>
-			</div>
-		</div>
-	</div>
-	TODO: DISABLING BREADCRUMBS TILL I HAVE BETTER SOLUTION...
-	<div class="breadcrumb-wrap">
-		<div class="row">
-			<div class="large-12 columns">
-				<?php //the_breadcrumb(); ?>
-			</div>
-		</div>
-	</div>
---> */?>

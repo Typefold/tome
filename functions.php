@@ -13,7 +13,7 @@ if ( get_current_blog_id() == 254 ) {
   Add Hypothes.is to the theme 
   - Assumes you have a boolean option set up for enabling/disabling hypothesis named: "enable_hypothesis"
 */
-function addHypothesis() {
+function tome_addHypothesis() {
   // Check option value
   if(get_option('enable_hypothesis') == 1):
     //  Include the snippet on
@@ -26,7 +26,7 @@ function addHypothesis() {
     endif;
   endif;
 }
-add_action( 'wp_footer', 'addHypothesis');
+add_action( 'wp_footer', 'tome_addHypothesis');
 
 
 $enable_hypothesis = new enable_hypothesis();
@@ -45,17 +45,14 @@ class enable_hypothesis {
     }
 }
 
-// TODO - This is not really necessary - just use browser-sync
-// echo '<script src="http://localhost:35729/livereload.js"></script>';
-
 remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
 
 require_once 'lib/embed-media-sizes/embed-media-edits.php';
 
 
 // Don't show users wordpress update notification
-add_action( 'admin_menu', 'remove_update_nag' );
-function remove_update_nag() {
+add_action( 'admin_menu', 'tome_remove_update_nag' );
+function tome_remove_update_nag() {
 	remove_action( 'admin_notices', 'update_nag', 3 );
 }
 
@@ -63,7 +60,6 @@ function remove_update_nag() {
 //Include dependencies.
 include('tome-deps/include.php');
 include('lib/tome-gallery-shortcode/class.shortcode.php');
-
 
 if ( ! isset( $content_width ) ) {
 	$content_width = 800;
@@ -74,7 +70,7 @@ if ( ! isset( $content_width ) ) {
  */
 if ( function_exists('icl_object_id') ) {
 
-	function get_language_name($code=''){
+	function tome_get_wpml_language_name($code=''){
 		global $sitepress;
 		$details = $sitepress->get_language_details($code);
 		$language_name = $details['english_name'];
@@ -82,11 +78,11 @@ if ( function_exists('icl_object_id') ) {
 	}
 
 
-	function top_menu_language_switcher(){
+	function top_menu_tome_language_switcher(){
 		$languages = icl_get_languages('skip_missing=0&orderby=code');
 
 		echo '<li class="has-dropdown not-click">';
-		echo '<a>'. get_language_name(ICL_LANGUAGE_CODE) .'</a>';
+		echo '<a>'. tome_get_wpml_language_name(ICL_LANGUAGE_CODE) .'</a>';
 		echo '<ul class="dropdown">';
 
 			if( ! empty( $languages ) ) {
@@ -105,11 +101,11 @@ if ( function_exists('icl_object_id') ) {
 		echo '</li>';
 	}
 
-	add_action( 'amsf_tome_topnav_right_list', 'top_menu_language_switcher' );
+	add_action( 'tome_topnav_right_list', 'top_menu_tome_language_switcher' );
 
 }
 
-function language_switcher()
+function tome_language_switcher()
 {
 	if($_GET['lang']) {
 		$current_language = $_GET['lang'];
@@ -190,7 +186,6 @@ function tome_comment( $atts, $content = null ) {
 add_shortcode( 'tome_comment','tome_comment' );
 
 
-
 function create_comment() {
 
 	$postarr = array(
@@ -224,7 +219,7 @@ add_filter( 'the_content', 'wpautop', 100);
 $tome_content_widths = "large-10 large-centered medium-8 medium-centered small-12 columns"; 
 
 // This function loads the Tome plugins.
-function load_tome_deps() {
+function tome_load_post_types() {
 	
 	$TOME_DEPS_URI = get_template_directory().'/tome-deps/';
 
@@ -243,7 +238,7 @@ function load_tome_deps() {
 }
 
 //Load up all the Tome Dependenies/Plugins
-add_action('after_setup_theme', 'load_tome_deps');
+add_action('after_setup_theme', 'tome_load_post_types');
 
 /* Register all assets here */
 
@@ -378,13 +373,15 @@ function is_edit_page($new_edit = null){
 	//make sure we are on the backend
 	if (!is_admin()) return false;
 
-
-	if($new_edit == "edit")
+	if($new_edit == "edit") {
 		return in_array( $pagenow, array( 'post.php',  ) );
-	elseif($new_edit == "new") //check for new post page
+	} elseif($new_edit == "new") {
+		//check for new post page
 		return in_array( $pagenow, array( 'post-new.php' ) );
-	else //check for either new or edit
+	} else {
+		//check for either new or edit
 		return in_array( $pagenow, array( 'post.php', 'post-new.php' ) );
+	}
 }
 
 
@@ -428,10 +425,10 @@ function tome_add_admin_scripts( $hook ) {
 add_action( 'admin_enqueue_scripts', 'tome_add_admin_scripts', 10, 1 ); 
 
 
-function tomef4_add_editor_styles() {
+function tome_add_editor_styles() {
 	add_editor_style( 'css/admin-styles.css' );
 }
-add_action( 'init', 'tomef4_add_editor_styles' );
+add_action( 'init', 'tome_add_editor_styles' );
 
 
 //Set up our custom image sizes for Tome.
@@ -530,20 +527,20 @@ function tome_get_html_attr_value( $html_content, $attr_name ) {
 add_filter( 'use_default_gallery_style', '__return_false' );
 
 /////////////// MENUS
-if ( ! function_exists('amsf_nav_menus') ) {
+if ( ! function_exists('tome_nav_menus') ) {
 
 // Register Navigation Menus
-function amsf_nav_menus() {
+function tome_nav_menus() {
 	$locations = array(
-		'amsf_top_nav' => __( 'Top Bar Nav', 'text_domain' ),
-		'amsf_footer_menu' => __( 'Footer Menu', 'text_domain' ),
+		'tome_top_nav' => __( 'Top Bar Nav', 'text_domain' ),
+		'tome_footer_menu' => __( 'Footer Menu', 'text_domain' ),
 	);
 
 	register_nav_menus( $locations );
 }
 
 // Hook into the 'init' action
-add_action( 'init', 'amsf_nav_menus' );
+add_action( 'init', 'tome_nav_menus' );
 
 }
 
@@ -570,38 +567,18 @@ register_sidebar(array(
 
 
 //Add custom classes to previous/next 
-function posts_link_next_class() {
+function tome_posts_link_next_class() {
 	return 'class="next-paginav large button expand"';
 } 
-add_filter('next_posts_link_attributes', 'posts_link_next_class');
+add_filter('next_posts_link_attributes', 'tome_posts_link_next_class');
 
-function posts_link_prev_class() {
+function tome_posts_link_prev_class() {
 	return 'class="prev-paginav large button expand"';
 } 
-add_filter('previous_posts_link_attributes', 'posts_link_prev_class');
-
-// From 320Press:   Change the standard class that wordpress puts on the active menu item in the nav bar
-//                  Deletes all CSS classes and id's, except for those listed in the array below
-function custom_wp_nav_menu($var) {
-		return is_array($var) ? array_intersect($var, array(
-				//List of allowed menu classes
-				'current_page_item',
-				'current_page_parent',
-				'current_page_ancestor',
-				'first',
-				'last',
-				'vertical',
-				'horizontal'
-				)
-		) : '';
-}
-// add_filter('nav_menu_css_class', 'custom_wp_nav_menu');
-// add_filter('nav_menu_item_id', 'custom_wp_nav_menu');
-// add_filter('page_css_class', 'custom_wp_nav_menu');
-
+add_filter('previous_posts_link_attributes', 'tome_posts_link_prev_class');
  
 //Replaces "current-menu-item" with "active"
-function current_to_active($text){
+function tome_current_to_active($text){
 		$replace = array(
 				//List of menu item classes that should be changed to "active"
 				'current_page_item' => 'active',
@@ -611,26 +588,25 @@ function current_to_active($text){
 		$text = str_replace(array_keys($replace), $replace, $text);
 				return $text;
 		}
-add_filter ('wp_nav_menu','current_to_active');
+add_filter ('wp_nav_menu','tome_current_to_active');
 
 //From 320Press:    Deletes empty classes and removes the sub menu class
-function strip_empty_classes($menu) {
+function tome_strip_empty_classes($menu) {
 	$menu = preg_replace('/ class=""| class="sub-menu"/','',$menu);
 	return $menu;
 }
-add_filter ('wp_nav_menu','strip_empty_classes');
-
+add_filter ('wp_nav_menu','tome_strip_empty_classes');
 
 // allows us to see any errors generated when any plugin is activated
-function save_error(){
+function tome_save_error(){
 	file_put_contents(ABSPATH. 'wp-content/error_activation.html', ob_get_contents());
 }
-add_action('activated_plugin','save_error');
+add_action('activated_plugin','tome_save_error');
 
 
 //Tome Specific Bar Nav
 //This adds a topbar with some tome controls on the right.
-function amsf_tome_topnav() {
+function tome_topnav() {
 	?>
 		<nav class="top-bar">
 		  <ul class="title-area">
@@ -645,16 +621,16 @@ function amsf_tome_topnav() {
 	<?php
 			wp_nav_menu( 
 				array( 
-					'theme_location'  => 'amsf_top_nav',
+					'theme_location'  => 'tome_top_nav',
 					'container' => 'section',
 					'container_class' => 'top-bar-section',
 					'menu_class' => 'left',
-					'walker' => new top_bar_walker
+					'walker' => new tome_top_bar_walker
 				)
 			);
 	?>
 			<ul class="right">
-				<?php do_action( 'amsf_tome_topnav_right_list' ); ?>
+				<?php do_action( 'tome_topnav_right_list' ); ?>
 			</ul>
 			</section>
 		</nav>
@@ -663,7 +639,7 @@ function amsf_tome_topnav() {
 
 // add the 'has-dropdown' class to any li's that have children and add the arrows to li's with children
 // also adds the 'dropdown' to the elements that are one...
-class top_bar_walker extends Walker_Nav_Menu
+class tome_top_bar_walker extends Walker_Nav_Menu
 {
 	  function start_el(&$output, $item, $depth, $args)
 	  {
@@ -754,7 +730,7 @@ function the_breadcrumb() {
 media-page.php (media page) funcions
 
 ----------*/
-function get_portrait_class( $image_width, $image_height ) {
+function tome_get_portrait_class( $image_width, $image_height ) {
 
 	$imgClass = "";
 	$attachment_aspect_ratio = $image_width / $image_height;
@@ -767,7 +743,7 @@ function get_portrait_class( $image_width, $image_height ) {
 
 }
 
-function get_gallery_image_tags( $post ) {
+function tome_get_gallery_image_tags( $post ) {
 
 	$tags = wp_get_post_tags( $post->ID );
 	$image_tags = "";
@@ -798,7 +774,7 @@ TODO : This probably needs to be cleaned up.
 require( 'tome-editor-buttons/tome-mce-buttons.php' );
 
 
-// This guy came out of _s theme. It is cool, but actually it's cool to know that if this
+// This guy came out of _s theme. 
 //is missing, then no comments are output, only a form...
 if ( ! function_exists( 'tometheme_comment' ) ) :
 /**
@@ -862,9 +838,9 @@ endif; // ends check for tometheme_comment()
 
 
 
-add_action('media_buttons',  'custom_add_buttons');
+add_action('media_buttons',  'tome_custom_add_buttons');
 
-function custom_add_buttons() {
+function tome_custom_add_buttons() {
 	$admin_url = get_admin_url();
 	if( post_type_exists( "tome_place" ) )
 		echo '<a href="'.$admin_url.'admin-ajax.php?action=add_shortcode&type=tome_place" data-editor="content" title="Add Place" class="thickbox button" style="float: right">Add Place</a>';
@@ -993,8 +969,6 @@ function cleanString($text) {
 function tooltip_pre_save_handler( $post_id ) {
 
 	// check if this is to be a new post
-//    file_put_contents('php://stderr', print_r("testing123", TRUE));
-//    trigger_error("test123");
 	if( $post_id != 'new' ) {
 		return $post_id;
 	}
@@ -1219,18 +1193,5 @@ function hex2rgb($hex) {
    //return implode(",", $rgb); // returns the rgb values separated by commas
    return $rgb; // returns an array with the rgb values
 }
-
-// fix for shortcode returns being given extra paragraph tags everywhere.
-//add_filter( 'the_content', 'shortcode_unautop',100 );
-
-//acf_enqueue_uploader();
-
-//----------------------------------------------------//
-// function tome_media_strings($strings) {
-//     //print_r($strings);
-//     //unset($strings['insertIntoPost']);
-//     return $strings;
-// }
-// add_filter('media_view_strings','tome_media_strings');
 
 ?>
