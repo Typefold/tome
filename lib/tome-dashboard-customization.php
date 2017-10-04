@@ -1,17 +1,21 @@
 <?php 
 // Dashboard Tome Multisite
 
-// Add Tome Cover Page Settings Options
-if( function_exists('acf_add_options_page') ) {
-	
-	acf_add_options_page(array(
-		'page_title'    => 'Cover Page Settings',
-		'menu_title'    => 'Cover Page',
-		'menu_slug'     => 'tome-cover-settings',
-		'capability'    => 'edit_posts',
-		'parent_slug'   => 'tome-dashboard'
-	));
+add_action('admin_menu', 'tome_add_dashboard_settings', 99);
 
+function tome_add_dashboard_settings() {
+	// Add Tome Cover Page Settings Options
+	if( function_exists('acf_add_options_page') ) {
+		
+		acf_add_options_page(array(
+			'page_title'    => 'Cover Page Settings',
+			'menu_title'    => 'Cover Page',
+			'menu_slug'     => 'tome-cover-settings',
+			'capability'    => 'edit_posts',
+			'parent_slug'   => 'tome-dashboard'
+		));
+
+	}
 }
 
 // Profile Page

@@ -50,7 +50,10 @@
 
 
 body.admin-bar {
-    padding-top: 41px;
+    padding-top: 45px;
+}
+body.home {
+    background-color: black;
 }
 
 .entry-content > img {
@@ -5748,6 +5751,20 @@ a.th {
     justify-content: center;
 }
 
+.tome-cover-external-media {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+.tome-cover-external-media iframe {
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
 .empty-cover {
     font-size: 2.3125em;
     font-family: 'Lora', sans-serif;

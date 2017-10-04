@@ -107,7 +107,8 @@
 
 		initTomeCoverVideos();
 
-
 	})(jQuery);
-
 }.call(this));
+
+
+// 

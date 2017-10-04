@@ -32,7 +32,7 @@ function tome_js_register() {
 	wp_register_script('tome_place_js', $themeUri. '/tome-deps/tome_post_type_place/js/tome_place_maps.js', array('jquery', 'google_maps'),'3.0',true);
 
 	//Cover JS
-	wp_register_script( 'tome_cover_script', $themeUri . '/js/tome.cover.js', array('jquery'), '0.1', true);
+	wp_register_script( 'tome_cover_script', $themeUri . '/js/tome.cover.js', array('jquery'), '0.2', true);
 
 	// Select2 Plugin
 	// usage: ['embed media modal filter, tome admin dashboard ]

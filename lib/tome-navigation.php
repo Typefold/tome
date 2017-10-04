@@ -119,7 +119,7 @@ class tome_top_bar_walker extends Walker_Nav_Menu
 			$class_names = $value = '';
 			
 			// If the item has children, add the dropdown class for foundation
-			if ( $args->has_children ) {
+			if ( $args['has_children'] ) {
 				$class_names = "has-dropdown ";
 			}
 			
@@ -136,7 +136,7 @@ class tome_top_bar_walker extends Walker_Nav_Menu
 			$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
 			$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
 			
-			$item_output = $args->before;
+			$item_output = $args['before'];
 			$item_output .= '<a'. $attributes .'>';
 			$item_output .= $args->link_before .apply_filters( 'the_title', $item->title, $item->ID );
 			$item_output .= $args->link_after;

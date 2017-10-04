@@ -160,7 +160,6 @@ Prev/next Chapter
     margin:0;
 }
 
-
 /* Admin bar is so annoying... */
 body.logged-in.admin-bar > .fixed {
     top:28px;
@@ -171,9 +170,7 @@ body.logged-in.admin-bar > .fixed {
         top:46px;
     }   
 }
-body {
-    margin-top: 45px;
-}
+
 /* -------------------------------
     STYLES FOR THE TOME GALLERY
 ------------------------------- */
