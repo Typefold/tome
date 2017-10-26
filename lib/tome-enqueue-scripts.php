@@ -46,6 +46,7 @@ function tome_js_register() {
 	// Media page lightbox
 	wp_register_style( 'media-page-lightbox', $themeUri . '/css/lightgallery.min.css');
 	wp_register_style( 'media-page-lightbox-transition', $themeUri . '/css/lg-transitions.min.css');
+
 	wp_register_script( 'media-page-lightbox-script', $themeUri . '/js/plugins/lightgallery-all.min.js', array('jquery'), '0.1', true);
 
 	// tome gallery lightbox
@@ -80,7 +81,7 @@ function tome_js_frontend( ){
 	wp_enqueue_script( 'tome-gallery-lightbox' );
 
 
-	if ( $post->post_type == 'page' && $post->post_name == 'media' ) {
+	if ( is_page_template( 'media-page.php' ) ) {
 		wp_enqueue_style( 'media-page-lightbox' );
 		wp_enqueue_style( 'media-page-lightbox-transition' );
 		wp_enqueue_script( 'media-page-lightbox-script' );
